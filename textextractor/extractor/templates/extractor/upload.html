@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Extractor</title>
+</head>
+<body>
+    <h1>Upload a File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Extract</button>
+    </form>
+
+    {% if extracted_text %}
+        <h2>Extracted Text:</h2>
+        <pre>{{ extracted_text }}</pre>
+    {% endif %}
+</body>
+</html>
